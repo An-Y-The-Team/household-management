@@ -1,6 +1,6 @@
-# Subscription Tracker
+# Household Management
 
-A full-stack web application for tracking subscriptions, managing billing cycles, and generating spending insights.
+A full-stack web application for managing households — track tasks, members, subscriptions, spending, and more.
 
 ## Project Structure
 

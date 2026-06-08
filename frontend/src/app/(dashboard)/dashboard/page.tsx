@@ -1,20 +1,44 @@
 "use client";
 
-import { SignOutButton } from "@/features/auth/components/sign-out-button/sign-out-button";
-import { useAuth } from "@/features/auth/auth-provider";
+import { ActivityChart } from "@/app/(dashboard)/dashboard/components/activity-chart/activity-chart";
+import { DashboardSkeleton } from "@/app/(dashboard)/dashboard/components/dashboard-skeleton/dashboard-skeleton";
+import { RecentActivity } from "@/app/(dashboard)/dashboard/components/recent-activity/recent-activity";
+import { SpendingChart } from "@/app/(dashboard)/dashboard/components/spending-chart/spending-chart";
+import { StatsCards } from "@/app/(dashboard)/dashboard/components/stats-cards/stats-cards";
+import { UpcomingPayments } from "@/app/(dashboard)/dashboard/components/upcoming-payments/upcoming-payments";
+import { useDashboard } from "@/app/(dashboard)/dashboard/hooks/use-dashboard/use-dashboard";
 
 export default function DashboardPage() {
-  const { user } = useAuth();
+  const { data, isLoading } = useDashboard();
+
+  if (isLoading || !data) {
+    return <DashboardSkeleton />;
+  }
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-6 p-8">
-      <div className="flex flex-col items-center gap-1 text-center">
+    <div className="space-y-6">
+      {/* ── Page header ──────────────────────────────────────── */}
+      <div>
         <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
         <p className="text-muted-foreground text-sm">
-          Signed in as {user?.name ?? user?.email}
+          Overview of your households
         </p>
       </div>
-      <SignOutButton />
+
+      {/* ── KPI Stats ────────────────────────────────────────── */}
+      <StatsCards stats={data.stats} />
+
+      {/* ── Charts row ───────────────────────────────────────── */}
+      <div className="grid gap-4 lg:grid-cols-7">
+        <ActivityChart data={data.activityChart} />
+        <SpendingChart data={data.spendingChart} />
+      </div>
+
+      {/* ── Activity + Payments row ──────────────────────────── */}
+      <div className="grid gap-4 lg:grid-cols-7">
+        <RecentActivity items={data.recentActivity} />
+        <UpcomingPayments payments={data.upcomingPayments} />
+      </div>
     </div>
   );
 }

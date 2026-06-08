@@ -3,8 +3,9 @@
 import type { Metadata } from "next";
 import { Fira_Code, Lora, Poppins } from "next/font/google";
 
+import { AuthProvider } from "@/app/(auth)/auth-provider";
 import { QueryProvider } from "@/context/query-provider";
-import { AuthProvider } from "@/features/auth/auth-provider";
+import { ThemeProvider } from "@/context/theme-provider";
 import { ApiProvider } from "@/shared/api";
 
 import "./globals.css";
@@ -36,15 +37,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} flex min-h-svh flex-col antialiased`}
       >
-        <ApiProvider>
-          <QueryProvider>
-            <AuthProvider>{children}</AuthProvider>
-          </QueryProvider>
-        </ApiProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ApiProvider>
+            <QueryProvider>
+              <AuthProvider>{children}</AuthProvider>
+            </QueryProvider>
+          </ApiProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

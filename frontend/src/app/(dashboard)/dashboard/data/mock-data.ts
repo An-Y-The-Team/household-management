@@ -1,0 +1,161 @@
+import { ActivityType, DashboardMetric } from "../constants";
+import type { DashboardData } from "../types";
+
+export const MOCK_DASHBOARD_DATA: DashboardData = {
+  stats: [
+    {
+      metric: DashboardMetric.TOTAL_MEMBERS,
+      label: "Total Members",
+      value: 24,
+      formattedValue: "24",
+      change: 12.5,
+      trend: "up",
+    },
+    {
+      metric: DashboardMetric.ACTIVE_TASKS,
+      label: "Active Tasks",
+      value: 18,
+      formattedValue: "18",
+      change: -4.2,
+      trend: "up",
+    },
+    {
+      metric: DashboardMetric.MONTHLY_SPENDING,
+      label: "Monthly Spending",
+      value: 2847,
+      formattedValue: "$2,847",
+      change: 8.1,
+      trend: "down",
+    },
+    {
+      metric: DashboardMetric.UPCOMING_PAYMENTS,
+      label: "Upcoming Payments",
+      value: 7,
+      formattedValue: "7",
+      change: 0,
+      trend: "up",
+    },
+  ],
+
+  activityChart: [
+    { date: "2026-05-01", tasksCompleted: 4, tasksCreated: 6 },
+    { date: "2026-05-02", tasksCompleted: 7, tasksCreated: 3 },
+    { date: "2026-05-03", tasksCompleted: 5, tasksCreated: 5 },
+    { date: "2026-05-04", tasksCompleted: 8, tasksCreated: 4 },
+    { date: "2026-05-05", tasksCompleted: 3, tasksCreated: 7 },
+    { date: "2026-05-06", tasksCompleted: 6, tasksCreated: 2 },
+    { date: "2026-05-07", tasksCompleted: 9, tasksCreated: 5 },
+    { date: "2026-05-08", tasksCompleted: 5, tasksCreated: 8 },
+    { date: "2026-05-09", tasksCompleted: 7, tasksCreated: 4 },
+    { date: "2026-05-10", tasksCompleted: 4, tasksCreated: 6 },
+    { date: "2026-05-11", tasksCompleted: 6, tasksCreated: 3 },
+    { date: "2026-05-12", tasksCompleted: 8, tasksCreated: 7 },
+    { date: "2026-05-13", tasksCompleted: 10, tasksCreated: 5 },
+    { date: "2026-05-14", tasksCompleted: 7, tasksCreated: 4 },
+  ],
+
+  spendingChart: [
+    { category: "Entertainment", amount: 489, fill: "var(--color-chart-1)" },
+    { category: "Utilities", amount: 723, fill: "var(--color-chart-2)" },
+    { category: "Software", amount: 312, fill: "var(--color-chart-3)" },
+    { category: "Health", amount: 198, fill: "var(--color-chart-4)" },
+    { category: "Food", amount: 1125, fill: "var(--color-chart-5)" },
+  ],
+
+  recentActivity: [
+    {
+      id: "act-1",
+      type: ActivityType.TASK_COMPLETED,
+      description: 'Completed "Clean kitchen counters"',
+      user: "Sarah Chen",
+      timestamp: "2026-06-07T14:32:00Z",
+    },
+    {
+      id: "act-2",
+      type: ActivityType.PAYMENT_MADE,
+      description: "Netflix subscription renewed — $15.99",
+      user: "System",
+      timestamp: "2026-06-07T12:00:00Z",
+    },
+    {
+      id: "act-3",
+      type: ActivityType.MEMBER_JOINED,
+      description: "Alex Rivera joined Riverside Household",
+      user: "Alex Rivera",
+      timestamp: "2026-06-07T09:15:00Z",
+    },
+    {
+      id: "act-4",
+      type: ActivityType.TASK_CREATED,
+      description: 'Created "Fix leaky bathroom faucet"',
+      user: "Marcus Johnson",
+      timestamp: "2026-06-06T18:45:00Z",
+    },
+    {
+      id: "act-5",
+      type: ActivityType.SUBSCRIPTION_ADDED,
+      description: "Added Spotify Family plan — $16.99/mo",
+      user: "Sarah Chen",
+      timestamp: "2026-06-06T15:30:00Z",
+    },
+    {
+      id: "act-6",
+      type: ActivityType.TASK_COMPLETED,
+      description: 'Completed "Mow the lawn"',
+      user: "James Park",
+      timestamp: "2026-06-06T11:20:00Z",
+    },
+    {
+      id: "act-7",
+      type: ActivityType.TASK_COMPLETED,
+      description: 'Completed "Grocery shopping"',
+      user: "Priya Sharma",
+      timestamp: "2026-06-05T16:10:00Z",
+    },
+    {
+      id: "act-8",
+      type: ActivityType.PAYMENT_MADE,
+      description: "Electricity bill paid — $142.50",
+      user: "System",
+      timestamp: "2026-06-05T08:00:00Z",
+    },
+  ],
+
+  upcomingPayments: [
+    {
+      id: "pay-1",
+      name: "Internet (Spectrum)",
+      amount: 79.99,
+      dueDate: "2026-06-10",
+      category: "Utilities",
+    },
+    {
+      id: "pay-2",
+      name: "Spotify Family",
+      amount: 16.99,
+      dueDate: "2026-06-12",
+      category: "Entertainment",
+    },
+    {
+      id: "pay-3",
+      name: "Gym Membership",
+      amount: 49.99,
+      dueDate: "2026-06-15",
+      category: "Health",
+    },
+    {
+      id: "pay-4",
+      name: "Disney+",
+      amount: 13.99,
+      dueDate: "2026-06-18",
+      category: "Entertainment",
+    },
+    {
+      id: "pay-5",
+      name: "Water Bill",
+      amount: 65.0,
+      dueDate: "2026-06-20",
+      category: "Utilities",
+    },
+  ],
+};
