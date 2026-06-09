@@ -14,9 +14,9 @@ import {
   DEFAULT_POST_LOGIN_REDIRECT,
   LOGIN_PATH,
   LOGOUT_PATH,
-} from "./constants";
-import { useCurrentUser } from "./hooks/use-current-user/use-current-user";
-import type { AuthContextValue } from "./types";
+} from "../../constants";
+import { useCurrentUser } from "../../hooks/use-current-user/use-current-user";
+import type { AuthContextValue } from "../../types";
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 

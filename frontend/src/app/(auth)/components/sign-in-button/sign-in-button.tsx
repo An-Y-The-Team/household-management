@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 
-import { useAuth } from "../../auth-provider";
+import { useAuth } from "../../providers/auth-provider/auth-provider";
 
 interface SignInButtonProps {
   /** Path to return to after login completes. */

@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import { Fira_Code, Lora, Poppins } from "next/font/google";
 
-import { AuthProvider } from "@/app/(auth)/auth-provider";
+import { AuthProvider } from "@/app/(auth)/providers/auth-provider/auth-provider";
 import { QueryProvider } from "@/context/query-provider";
 import { ThemeProvider } from "@/context/theme-provider";
 import { ApiProvider } from "@/shared/api";

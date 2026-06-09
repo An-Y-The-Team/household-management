@@ -7,7 +7,7 @@ import { Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-import { useAuth } from "../../auth-provider";
+import { useAuth } from "../../providers/auth-provider/auth-provider";
 import { AuthStatus } from "../../constants";
 
 /**

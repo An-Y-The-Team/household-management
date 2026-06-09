@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { LogOut } from "lucide-react";
 
-import { useAuth } from "@/app/(auth)/auth-provider";
+import { useAuth } from "@/app/(auth)/providers/auth-provider/auth-provider";
 import {
   Sidebar,
   SidebarContent,
